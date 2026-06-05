@@ -306,13 +306,13 @@ public class TransactionDAO {
             int month,
             int year) {
 
-        String sql =
-                "SELECT SUM(amount) "
-                + "FROM transactions "
-                + "WHERE user_id=? "
-                + "AND type='INCOME' "
-                + "AND MONTH(date)=? "
-                + "AND YEAR(date)=?";
+    	String sql =
+    	        "SELECT SUM(amount) "
+    	        + "FROM transactions "
+    	        + "WHERE user_id=? "
+    	        + "AND type='INCOME' "
+    	        + "AND EXTRACT(MONTH FROM date)=? "
+    	        + "AND EXTRACT(YEAR FROM date)=?";
 
         try (
                 Connection con =
@@ -345,14 +345,13 @@ public class TransactionDAO {
             int month,
             int year) {
 
-        String sql =
-                "SELECT SUM(amount) "
-                + "FROM transactions "
-                + "WHERE user_id=? "
-                + "AND type='EXPENSE' "
-                + "AND MONTH(date)=? "
-                + "AND YEAR(date)=?";
-
+    	String sql =
+    	        "SELECT SUM(amount) "
+    	        + "FROM transactions "
+    	        + "WHERE user_id=? "
+    	        + "AND type='EXPENSE' "
+    	        + "AND EXTRACT(MONTH FROM date)=? "
+    	        + "AND EXTRACT(YEAR FROM date)=?";
         try (
                 Connection con =
                         DBConnection.getConnection();
