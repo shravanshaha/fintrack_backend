@@ -40,9 +40,6 @@ public class DashboardServlet extends HttpServlet {
 
         if("summary".equals(action)) {
 
-        	response.getWriter().println(
-        		    "USER ID = " + userId
-        		);
         	
             double income =
                     dao.getTotalIncome(userId);
