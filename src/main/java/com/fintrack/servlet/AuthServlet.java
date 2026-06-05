@@ -78,25 +78,22 @@ public class AuthServlet extends HttpServlet {
 
 	        if(user != null) {
 
-	            HttpSession session =
-	                    request.getSession();
-
-	            session.setAttribute(
-	                    "userId",
-	                    user.getId()
-	            );
-
-	            session.setAttribute(
-	                    "userName",
-	                    user.getName()
+	            response.setContentType(
+	                    "application/json"
 	            );
 
 	            response.getWriter()
-	                    .println(
-	                            "Login Successful! Welcome "
+	                    .write(
+	                            "{"
+	                            + "\"success\":true,"
+	                            + "\"userId\":"
+	                            + user.getId()
+	                            + ","
+	                            + "\"name\":\""
 	                            + user.getName()
+	                            + "\""
+	                            + "}"
 	                    );
-
 	        } else {
 
 	            response.getWriter()

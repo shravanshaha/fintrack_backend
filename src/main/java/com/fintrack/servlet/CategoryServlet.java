@@ -24,21 +24,12 @@ public class CategoryServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session =
-                request.getSession(false);
-
-        if(session == null ||
-                session.getAttribute("userId") == null) {
-
-            response.getWriter()
-                    .println("Please Login First");
-
-            return;
-        }
-
-        int userId =
-                (Integer) session.getAttribute(
-                        "userId");
+    	int userId =
+    	        Integer.parseInt(
+    	                request.getParameter(
+    	                        "userId"
+    	                )
+    	        );
 
         String action =
                 request.getParameter("action");
