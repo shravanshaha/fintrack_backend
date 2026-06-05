@@ -26,7 +26,7 @@ public class CorsFilter implements Filter {
 
         res.setHeader(
                 "Access-Control-Allow-Origin",
-                "http://localhost:5173"
+                "https://fintrack-frontend-lemon.vercel.app"
         );
 
         res.setHeader(
